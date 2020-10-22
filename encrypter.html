@@ -1,0 +1,99 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>C.O.T. Encrypter</title>
+  </head>
+  <body>
+    <h1>C.O.T. Encrypter</h1>
+    <br>
+    <input type="text" class="text" value="Text" onclick="this.value=''"/>
+    <input type="text" class="code" value="Code" onclick="this.value=''"/>
+    <input type="text" class="com" value="Complexity" onclick="this.value=''"/>
+    <br>
+    <br>
+    <div class="icon icon-expand"> <i class="fa fa-bars"></i></div>
+    <script>
+     let text = document.querySelector('.text');
+     let code = document.querySelector('.code');
+     let com = document.querySelector('.com');
+     let button = document.querySelector('.icon');
+     button.addEventListener('click', function () {
+     let textArray = []
+     let t = text.value
+     let c = parseInt(code.value)
+     let comp = parseInt(com.value)
+     for (i=0; i<t.length; i++) {
+       r = Math.ceil(Math.random(10) * comp)
+       textArray.push((t.toLowerCase().charCodeAt(i))*r)
+       textArray.push((c)*(r))
+      }
+      let et = document.createElement('p')
+      et.innerText = textArray.toString();
+      document.body.appendChild(et)
+     })
+    </script>
+    <style>
+body {
+  margin: 50;
+  background: #2d2c3e;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  z-index: -1;
+  text-align: center;
+}
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: #FFFFFF;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  color: #FFFFFF;
+}
+
+.icon {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin-left: 12px;
+  margin-right: 12px;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.icon::before, .icon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  border-radius: 30px;
+}
+.icon i {
+  position: relative;
+  color: #FFFFFF;
+  font-size: 30px;
+  margin-top: 15px;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.icon-expand::after {
+  box-shadow: inset 0 0 0 1px #C82647;
+}
+.icon-expand::before {
+  background: #C82647;
+  box-shadow: inset 0 0 0 60px #2d2c3e;
+}
+.icon-expand:hover::before {
+  box-shadow: inset 0 0 0 1px #2d2c3e;
+}
+    </style>
+  </body>
+</html>
