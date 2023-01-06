@@ -13,23 +13,6 @@
     <br>
     <div class="icon icon-expand"> <i class="fa fa-bars"></i></div>
     <script>
-     const urlParams = new URLSearchParams(window.location.search);
-     if(urlParams.get('t') && urlParams.get('c') && urlParams.get('comp')) {
-        let textArray = []
-        let t = urlParams.get('t');
-        let c = 0;
-        let code = urlParams.get('c');
-        for(let i=0; i<code.length; i++) {
-          c+=code.charCodeAt(i);
-        }
-        let comp = parseInt(urlParams.get('comp'))
-        for (let i=0; i<t.length; i++) {
-          r = Math.ceil(Math.random(10) * comp)
-          textArray.push((t.toLowerCase().charCodeAt(i))*r)
-          textArray.push((c)*(r))
-        }
-        document.documentElement.innerHTML = textArray;
-     } else {
      let text = document.querySelector('.text');
      let code = document.querySelector('.code');
      let com = document.querySelector('.com');
@@ -51,7 +34,6 @@
       et.innerText = textArray.toString();
       document.body.appendChild(et)
      })
-     }
     </script>
     <style>
 body {
